@@ -3,15 +3,16 @@ import { memo } from 'react';
 interface ProductItemProps {
     product: {
         id: number;
-        price: number;
         title: string;
+        price: number;
+        formattedPrice: string;
     };
 }
 
 function ProductItemComponent({ product }: ProductItemProps) {
     return (
         <div>
-            {product.title} - <strong>{product.price}</strong>
+            {product.title} - <strong>{product.formattedPrice}</strong>
         </div>
     );
 }

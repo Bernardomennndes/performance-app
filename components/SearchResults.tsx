@@ -4,18 +4,14 @@ import { ProductItem } from "./ProductItem";
 interface SearchResultProps {
     results: Array<{
         id: number;
-        price: number;
         title: string;
-    }>
+        price: number;
+        formattedPrice: string;
+    }>;
+    totalPrice: number;
 }
 
-export function SearchResults({ results }: SearchResultProps) {
-
-    const totalPrice = useMemo(() => {
-        return results.reduce((acc, element) => {
-            return acc + element.price;
-        }, 0)
-    }, [results]);
+export function SearchResults({ results, totalPrice }: SearchResultProps) {
 
     return (
         <div>
